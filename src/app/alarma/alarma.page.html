@@ -1,0 +1,53 @@
+<ion-content class="content">
+
+<ion-header>
+  <ion-card-title>
+      <ion-button class="reload" color="light" (click) ="populateList()">
+        <img class="reloadImg" src="../../assets/reload.svg" alt="">
+      </ion-button>
+  </ion-card-title>
+</ion-header>
+  
+<ion-scroll>
+  <ion-card class="alertList">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeXs="3" *ngFor="let alarma of alarmas">
+          <ion-button class="list" color="light" [class.selected]="alarma === selectedAlarma" (click)="pickAlarma(alarma)" >
+            <ion-row class="button-rows" id="buttonState">
+              <img src="../../../assets/{{alarma.Data.LockStatus === 0 ? 'connected' : 'using'}}.svg" class="{{alarma.Data.LockStatus === 0 ? 'connected' : 'using'}}-icon" alt="" srcset="">
+              
+            </ion-row>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-scroll>
+  <ion-card class="ion-text-center">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card-title id="alarmName">
+            
+          </ion-card-title>
+          <ion-card-content>
+            <ion-row class="battery">
+              <img id="alarmBatteryPercent"/>
+            </ion-row>
+            <ion-row class="alertState">
+              <div>
+                <span>
+                  Estado: <span id="alarmState"></span>
+                </span>
+              </div>
+            </ion-row>
+          </ion-card-content>
+          <ion-button class="btnChangue" color="light" (click)="changueState(alarma)">
+            <img src="../../../assets/select.svg" alt="" srcset="">
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

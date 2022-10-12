@@ -1,0 +1,7 @@
+{
+  "name": "AlertAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
